@@ -16,3 +16,5 @@ echo 'Downloading python install script from Github'
 mkdir ~/temp/
 cd ~/temp/
 wget https://raw.githubusercontent.com/BenocxX/macos/main/install.py
+
+python3 install.py
