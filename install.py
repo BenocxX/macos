@@ -48,7 +48,8 @@ def homebrew():
     casks_apps = [
         'firefox',
         'visual-studio-code',
-        'fork'
+        'fork',
+        'discord'
     ]
 
     for app in casks_apps:
