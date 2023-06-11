@@ -51,7 +51,8 @@ def homebrew():
     cli_apps = [
         'fzf',
         'docker',
-        'docker-compose'
+        'docker-compose',
+        'node'
     ]
 
     for app in cli_apps:
@@ -64,7 +65,8 @@ def homebrew():
         'discord',
         'figma',
         'iterm2',
-        'docker'
+        'docker',
+        'dotnet-sdk'
     ]
 
     for app in casks_apps:
