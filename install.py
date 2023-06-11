@@ -48,7 +48,8 @@ def trackpad():
 def homebrew():
     print('============== Homebrew installations ==============')
     cli_apps = [
-        'fzf'
+        'fzf',
+        'docker'
     ]
 
     for app in cli_apps:
@@ -60,7 +61,8 @@ def homebrew():
         'fork',
         'discord',
         'figma',
-        'iterm2'
+        'iterm2',
+        'docker'
     ]
 
     for app in casks_apps:
