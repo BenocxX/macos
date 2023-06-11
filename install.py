@@ -6,6 +6,7 @@ ZSH_AUTOSUGGESTIONS = 'https://github.com/zsh-users/zsh-autosuggestions'
 ZSH_SYNTAX_HIGHLIGHTING = 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
 VSCODE_SETTINGS = 'https://gist.githubusercontent.com/BenocxX/df7eeea87e8db5d52544ec646ef18ec5/raw/691af7e60f529be8c2ef4fe16f76f7800e5c5859/settings.json'
 VSCODE_KEYBINDS = 'https://gist.githubusercontent.com/BenocxX/a7729cf68af081d114e6e22e93221fe7/raw/3450d8c44211994f99e48216740bac29d894a789/keybindings.json'
+IDEAVIMRC = 'https://gist.githubusercontent.com/BenocxX/c344f6493bb544ab0218a4cc006b16f9/raw/c51716602754aad9e3f648d4dadccb2e3d807e50/.ideavimrc'
 
 def dark_mode():
     print('============== Set dark mode ==============')
@@ -124,6 +125,10 @@ def pin_to_dock():
 
     os.system('killall Dock')
 
+def jetbrains():
+    print('============== Config Jetbrains ==============')
+    os.system(f'wget {IDEAVIMRC} -O ~/.ideavimrc')
+
 print('============== Start ==============')
 dark_mode()
 accent_menu()
@@ -133,4 +138,5 @@ homebrew()
 iterm()
 vscode()
 pin_to_dock()
+jetbrains()
 print('============== End ==============')
