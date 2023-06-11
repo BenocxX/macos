@@ -1,5 +1,12 @@
 import os
 
+OH_MY_ZSH = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh'
+ZSHRC = 'https://gist.githubusercontent.com/BenocxX/02c64b944e2ade276dc1c5faa09d113a/raw/bfebd172ac00b419d32ea3582571d3af8a3d001d/.zshrc'
+ZSH_AUTOSUGGESTIONS = 'https://github.com/zsh-users/zsh-autosuggestions'
+ZSH_SYNTAX_HIGHLIGHTING = 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+VSCODE_SETTINGS = 'https://gist.githubusercontent.com/BenocxX/df7eeea87e8db5d52544ec646ef18ec5/raw/691af7e60f529be8c2ef4fe16f76f7800e5c5859/settings.json'
+VSCODE_KEYBINDS = 'https://gist.githubusercontent.com/BenocxX/a7729cf68af081d114e6e22e93221fe7/raw/3450d8c44211994f99e48216740bac29d894a789/keybindings.json'
+
 def dark_mode():
     print('============== Set dark mode ==============')
     os.system(f'osascript -e \'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode\'')
@@ -40,7 +47,9 @@ def trackpad():
 
 def homebrew():
     print('============== Homebrew installations ==============')
-    cli_apps = []
+    cli_apps = [
+        'fzf'
+    ]
 
     for app in cli_apps:
         os.system(f'brew install {app}')
@@ -49,11 +58,23 @@ def homebrew():
         'firefox',
         'visual-studio-code',
         'fork',
-        'discord'
+        'discord',
+        'figma',
+        'iterm2'
     ]
 
     for app in casks_apps:
         os.system(f'brew install --cask {app}')
+
+def iterm():
+    print('============== Iterm ==============')
+
+    os.system(f'sh -c "$(wget {OH_MY_ZSH} -O -)"')
+    os.system(f'wget {ZSHRC} -O ~/.zshrc')
+
+    # zsh plugins
+    os.system(f'git clone {ZSH_AUTOSUGGESTIONS} ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions')
+    os.system(f'git clone {ZSH_SYNTAX_HIGHLIGHTING} ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting')
 
 def vscode():
     print('============== Config VSCode ==============')
@@ -85,8 +106,8 @@ def vscode():
         os.system(f'code --install-extension {extension}')
 
     # Gets settings.json and keybindings.json from gist
-    os.system('wget https://gist.githubusercontent.com/BenocxX/df7eeea87e8db5d52544ec646ef18ec5/raw/691af7e60f529be8c2ef4fe16f76f7800e5c5859/settings.json -O ~/Library/Application\ Support/Code/User/settings.json')
-    os.system('wget https://gist.githubusercontent.com/BenocxX/a7729cf68af081d114e6e22e93221fe7/raw/3450d8c44211994f99e48216740bac29d894a789/keybindings.json -O ~/Library/Application\ Support/Code/User/keybindings.json')
+    os.system(f'wget {VSCODE_SETTINGS} -O ~/Library/Application\ Support/Code/User/settings.json')
+    os.system(f'wget {VSCODE_KEYBINDS} -O ~/Library/Application\ Support/Code/User/keybindings.json')
 
 def pin_to_dock():
     print('============== Pin apps to Dock ==============')
@@ -101,11 +122,12 @@ def pin_to_dock():
     os.system('killall Dock')
 
 print('============== Start ==============')
-dark_mode()
-accent_menu()
-dock()
-trackpad()
-homebrew()
-vscode()
-pin_to_dock()
+# dark_mode()
+# accent_menu()
+# dock()
+# trackpad()
+# homebrew()
+iterm()
+# vscode()
+# pin_to_dock()
 print('============== End ==============')
