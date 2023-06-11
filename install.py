@@ -49,7 +49,8 @@ def homebrew():
     print('============== Homebrew installations ==============')
     cli_apps = [
         'fzf',
-        'docker'
+        'docker',
+        'docker-compose'
     ]
 
     for app in cli_apps:
